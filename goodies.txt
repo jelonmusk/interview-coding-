@@ -1,3 +1,5 @@
+Problem Statment:
+
 Let's say the HR team of a company has goodies set of size N each with a different price tag for each goodie. Now the HR team has to distribute the goodies among the M employees in the company such that one employee receives one goodie. Find out the goodies the HR team can distribute so that the difference between the low price goodie and the high price goodie selected is minimum.
 
 Input:
@@ -52,6 +54,8 @@ The input has to be read from a file. The input file contains the all the goodie
 The output has to be written to a file as shown in the example output file sample_output.txt in the current folder.
 
 Usage of any libraries provided by the language or the framework used is restricted, except for the Mathematics and the I/O libraries.
+
+*********************************************************************************************************************************************************************************
 
 Solution:
 
