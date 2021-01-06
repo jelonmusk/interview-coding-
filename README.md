@@ -10,5 +10,6 @@ This repo contains set of all the questions asked in interview assessments.
 |[difference](https://github.com/jelonmusk/interview-coding-/blob/main/difference.txt) | Python |   
 |[measurement](https://github.com/jelonmusk/interview-coding-/blob/main/measurement.txt) | Python | 
 |[totalSum](https://github.com/jelonmusk/interview-coding-/blob/main/totalSum.txt) | Python | 
+|[tax](https://github.com/jelonmusk/interview-coding-/blob/main/tax.txt) | Python |     
 
 
