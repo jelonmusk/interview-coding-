@@ -7,7 +7,7 @@ first line contains startState
 second line contains finishState
 next line n contains size of array deadlock
 
-
+*********************************************************************************************************************************************************************************
 Solution:
 
 #include <stdio.h>
