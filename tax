@@ -1,0 +1,32 @@
+Calculate bill Tax amount for a list of billing amounts passed as an array of long integers.
+Upto amount 1000, there is no tax applicable.Subsequently a tax of 10% i applicable for remaining amount as per the tax  rate.
+
+Example:
+
+Input 
+5
+1000 2000 3000 4000 5000
+
+Output
+1000
+
+Explanation:
+Amount          Tax
+1000          10% of (1000-1000) = 000
+2000          10% of (2000-1000) = 100
+3000          10% of (3000-1000) = 200
+4000          10% of (4000-1000) = 300
+5000          10% of (5000-1000) = 400
+---------------------------------------
+              Total              = 1000
+              
+           
+**********************************************************************************************************************************************************************************
+
+Solution:
+
+def calcTax(n,a):
+  tax=0
+  for i in range(a):
+    tax+=abs(a[i]-1000/10)
+   return tax
