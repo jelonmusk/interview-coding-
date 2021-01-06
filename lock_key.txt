@@ -1,0 +1,100 @@
+You are working as a professional lock maker for a bank. You design electronic locks which difficult to break. The lock consists of a specific number of digits. The locks are such that proper sequence needs to be followed while unlocking the lock. If not, we might be stuck in a deadlock This means that the lock is jammed and we can not try opening the lock once we are in a deadlock. Unfortunately, the bank lost the sequence that needs to be followed an asks for your help.
+
+You are given with 2 strings startState and finalState denoting the initial sequence of digits and the sequence of digits that unlocks the lock Both startState and finalState are of the same length. You are given with an array of strings deadlock of size n denoting the number of deadlock sequences. Each deadlock has the same length as that of startState and finalState. The lock is circular. You can either increase a digit or decrease a digit Each change takes 1 second. Your task is to find the minimum time in which we can reach the finalState from startState. Output - 1 if it is not possible to reach finalState due to deadlocks.
+
+INPUT:
+first line contains startState
+second line contains finishState
+next line n contains size of array deadlock
+
+
+Solution:
+
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <math.h>
+
+char dead_locker[][100] = {"113", "213","413"};
+int check_lock(char a[])
+{
+	int result = 1;
+	for(int i=0; i<3; i++)
+	{
+		if(strcmp(a,dead_locker[i])==0)
+		{
+			return 0;
+		}
+	}
+	return 1;
+}
+
+int main(void)
+{
+	char startState[] = "123";
+	char finalState[] = "313";
+	printf("Need to Move from %s to &=%s\n",startState, finalState);
+	int len = strlen(startState);
+	int count = 0;
+	int flag = 1;
+	for(int i=0; i<len;i++)
+	{
+		int diff = (int)finalState[i] - (int)startState[i];
+		printf("The diff in the %d position of finalState and startState is %d\n", i, diff);
+		if(diff != 0)
+		{
+			printf("The number %c must be moved to in %d directoion\n",startState[i],diff);
+			while(diff!=0)
+			{
+				if(diff>0)
+				{
+					diff--;
+					startState[i] = (int)startState[i]+1;
+				}
+				else
+				{
+					diff++;
+					startState[i] = (int)startState[i]-1;
+				}
+				if(check_lock(startState))
+				{
+					printf("%s is not the dead_lock\n", startState);
+					count += 1;
+				}
+				else
+				{
+					printf("%s is the dead_lock\n", startState); 
+					flag = 0;
+					break;
+				}
+			}
+		}
+		else
+		{
+			printf("The number %c is already in correct place, No Need to move\n",startState[i]);
+		}
+	}
+	if(flag)
+	{
+		printf("Total number of steps need to unlock the lock is %d", count);
+	}
+	else
+	{
+		printf("-1");
+	}
+	
+}
+
+
+Need to Move from 123 to &=313
+The diff in the 0 position of finalState and startState is 2
+The number 1 must be moved to in 2 directoion
+223 is not the dead_lock
+323 is not the dead_lock
+The diff in the 1 position of finalState and startState is -1
+The number 2 must be moved to in -1 directoion
+313 is not the dead_lock
+The diff in the 2 position of finalState and startState is 0
+The number 3 is already in correct place, No Need to move
+Total number of steps need to unlock the lock is 3
+
